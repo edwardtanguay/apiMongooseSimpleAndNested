@@ -1,0 +1,5 @@
+@url = http://localhost:3033 
+
+### show all 
+GET {{url}}
+content-type: application/json
