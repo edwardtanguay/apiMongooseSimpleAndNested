@@ -1,16 +1,15 @@
 import express from 'express';
-// import * as SpeakersController from './controllers/speakers.js';
-// import * as PresentationsController from './controllers/presentations.js';
+import * as SimpleUsersController from './controllers/simpleUsersController.js';
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost:27017/mongoConference');
+mongoose.connect('mongodb://localhost:27017/test');
 
 const app = express();
 const port = 3033;
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
 	res.json({
-		message: "test"
+		simpleUsers: await SimpleUsersController.getAll()
 	});
 });
 
