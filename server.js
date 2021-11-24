@@ -1,5 +1,6 @@
 import express from 'express';
-import * as SimpleUsersController from './controllers/simpleUsersController.js';
+import * as SimpleUsersController from './controllers/nestedUsersController.js';
+import * as NestedUsersController from './controllers/nestedUsersController.js';
 import mongoose from 'mongoose';
 
 mongoose.connect('mongodb://localhost:27017/test');
@@ -46,3 +47,10 @@ app.patch('/simpleUsers/update/:id', async (req, res) => {
 app.listen(port, () => {
 	console.log(`API is now listening on port ${port}`);
 })
+
+// nested users: READ
+app.get('/nestedUsers', async (req, res) => {
+	res.json({
+		nestedUsers: await NestedUsersController.getAllNestedUsers()
+	});
+});
