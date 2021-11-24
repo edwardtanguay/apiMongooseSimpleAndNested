@@ -72,3 +72,7 @@ content-type: application/json
 ### nested users READ 
 GET {{url}}/nestedUsers/accountHistory/619d91cbdd634e569082b150
 content-type: application/json
+
+### nested users DELETE 
+POST {{url}}/nestedUsers/delete/619d91cbdd634e569082b150
+content-type: application/json

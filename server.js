@@ -80,3 +80,12 @@ app.get('/nestedUsers/accountHistory/:id', async (req, res) => {
 		nestedUsers: await NestedUsersController.getAccountHistoryOfNestedUser(id)
 	});
 });
+
+// nested users: DELETE
+app.post('/nestedUsers/delete/:id', async (req, res) => {
+	const id = req.params.id;
+	const result = await NestedUsersController.deleteNestedUser(id);
+	res.json({
+		result
+	});
+});
