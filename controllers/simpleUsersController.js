@@ -1,10 +1,10 @@
 import SimpleUsersModel from '../models/simpleUsersModel.js';
 
-export const getAll = async () => {
+export const getAllSimpleUsers = async () => {
 	return await SimpleUsersModel.find({});
 }
 
-export const create = async (simpleUserJson) => {
+export const createSimpleUser = async (simpleUserJson) => {
 	const simpleUser = new SimpleUsersModel(simpleUserJson);
 	return simpleUser.save();
 }
