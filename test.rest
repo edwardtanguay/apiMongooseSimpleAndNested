@@ -76,3 +76,13 @@ content-type: application/json
 ### nested users DELETE 
 POST {{url}}/nestedUsers/delete/619d9778343cfbcb93976181
 content-type: application/json
+
+### nested users UPDATE 
+PATCH {{url}}/nestedUsers/update/619d7bb7017e9300920ffbdb
+content-type: application/json
+
+{
+	"name": "Stephanie Changed",
+	"address.street": "changed street",
+	"accountHistory.2.amount": 999
+}

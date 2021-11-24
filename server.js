@@ -44,9 +44,6 @@ app.patch('/simpleUsers/update/:id', async (req, res) => {
 		result
 	});
 });
-app.listen(port, () => {
-	console.log(`API is now listening on port ${port}`);
-})
 
 // nested users: CREATE
 app.post('/nestedUsers/create', async (req, res) => {
@@ -89,3 +86,17 @@ app.post('/nestedUsers/delete/:id', async (req, res) => {
 		result
 	});
 });
+
+// nested users: UPDATE
+app.patch('/nestedUsers/update/:id', async (req, res) => {
+	const id = req.params.id;
+	const updateFields = req.body
+	const result = await NestedUsersController.updateNestedUser(id, updateFields);
+	res.json({
+		result
+	});
+});
+
+app.listen(port, () => {
+	console.log(`API is now listening on port ${port}`);
+})
