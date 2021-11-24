@@ -16,8 +16,15 @@ app.get('/simpleUsers', async (req, res) => {
 });
 
 app.post('/simpleUsers/create', async (req, res) => {
-	console.log(req.body);
 	const result = await SimpleUsersController.createSimpleUser(req.body);
+	res.json({
+		result
+	});
+});
+
+app.post('/simpleUsers/delete/:id', async (req, res) => {
+	const id = req.params.id;
+	const result = await SimpleUsersController.deleteSimpleUser(id);
 	res.json({
 		result
 	});

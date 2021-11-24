@@ -12,3 +12,7 @@ content-type: application/json
 	"firstName": "Andre",
 	"lastName": "Hackerkrug"
 }
+
+### simple users DELETE 
+POST {{url}}/simpleUsers/delete/619d8061e3c04dfe88c85936
+content-type: application/json
