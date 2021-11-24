@@ -48,9 +48,35 @@ app.listen(port, () => {
 	console.log(`API is now listening on port ${port}`);
 })
 
+// nested users: CREATE
+app.post('/nestedUsers/create', async (req, res) => {
+	const nestedUserObj = req.body;
+	await NestedUsersController.createNestedUser(nestedUserObj, (result) => {
+		res.json({
+			result
+		});
+	});
+});
+
 // nested users: READ
 app.get('/nestedUsers', async (req, res) => {
 	res.json({
 		nestedUsers: await NestedUsersController.getAllNestedUsers()
+	});
+});
+
+// nested users: READ
+app.get('/nestedUsers/emails', async (req, res) => {
+	res.json({
+		nestedUsers: await NestedUsersController.getAllNestedUsersEmails()
+	});
+});
+
+// nested users: READ
+app.get('/nestedUsers/accountHistory/:id', async (req, res) => {
+	const id = req.params.id;
+	console.log(id);
+	res.json({
+		nestedUsers: await NestedUsersController.getAccountHistoryOfNestedUser(id)
 	});
 });

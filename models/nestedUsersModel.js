@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const nestedUsersSchema = mongoose.Schema({
-	name: String,
+	name: { type: String, required: true },
 	username: String,
 	email: String,
 	address: {
