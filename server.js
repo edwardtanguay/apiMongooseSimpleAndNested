@@ -1,5 +1,5 @@
 import express from 'express';
-import * as SimpleUsersController from './controllers/nestedUsersController.js';
+import * as SimpleUsersController from './controllers/simpleUsersController.js';
 import * as NestedUsersController from './controllers/nestedUsersController.js';
 import mongoose from 'mongoose';
 
