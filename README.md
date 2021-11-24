@@ -1,5 +1,5 @@
-# Node/Express/EJS/Mongoose Site with MVC Pattern
+# API that performs CRUD on simple and nested documents
 
-This project builds a mock conference site which has three pages: Welcome, Speakers and Presentations. 
+This is a simple API with a test.rest file that demonstrates CRUD for both simple and nested documents. 
 
-Each page has a route which loads a **Controller** which loads a Mongoose **Model** which delivers data which is sent to the EJS **View**.
+It has a **Controller** and model **Model** concept and so demonstrates the MVC pattern.
