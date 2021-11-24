@@ -5,7 +5,7 @@ export const getAllNestedUsers = async () => {
 }
 
 export const getAllNestedUsersEmails = async () => {
-	return await NestedUsersModel.find({}, {email: 1});
+	return await NestedUsersModel.find({}, { email: 1 });
 }
 
 export const getAccountHistoryOfNestedUser = async (id) => {
@@ -15,9 +15,8 @@ export const getAccountHistoryOfNestedUser = async (id) => {
 	});
 }
 
-export const createNestedUser = async (nestedUserObj, callback) => {
-	const nestedUser = new NestedUsersModel(nestedUserObj);
-	const result = nestedUser.save((err, docs) => {
+export const createNestedUser = async (nestedUser, callback) => {
+	await NestedUsersModel.create(nestedUser, (err, docs) => {
 		if (err) {
 			callback(err);
 		} else {
@@ -33,5 +32,3 @@ export const deleteNestedUser = async (id) => {
 export const updateNestedUser = async (id, updateFields) => {
 	return await NestedUsersModel.findByIdAndUpdate(id, updateFields, { new: true });
 }
-
-//
