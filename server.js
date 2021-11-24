@@ -7,9 +7,19 @@ mongoose.connect('mongodb://localhost:27017/test');
 const app = express();
 const port = 3033;
 
-app.get('/', async (req, res) => {
+app.use(express.json());
+
+app.get('/simpleUsers', async (req, res) => {
 	res.json({
 		simpleUsers: await SimpleUsersController.getAll()
+	});
+});
+
+app.post('/simpleUsers/create', async (req, res) => {
+	console.log(req.body);
+	const result = await SimpleUsersController.create(req.body);
+	res.json({
+		result
 	});
 });
 
