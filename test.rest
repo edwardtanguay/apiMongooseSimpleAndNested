@@ -1,9 +1,5 @@
 @url = http://localhost:3033 
 
-### simple users READ 
-GET {{url}}/simpleUsers
-content-type: application/json
-
 ### simple users CREATE 
 POST {{url}}/simpleUsers/create
 content-type: application/json
@@ -13,8 +9,8 @@ content-type: application/json
 	"lastName": "Hackerkrug"
 }
 
-### simple users DELETE 
-POST {{url}}/simpleUsers/delete/619d83eed2fb430e6e4c376a
+### simple users READ 
+GET {{url}}/simpleUsers
 content-type: application/json
 
 ### simple users UPDATE 
@@ -24,3 +20,7 @@ content-type: application/json
 {
 	"lastName": "Lastname-Changed"
 }
+
+### simple users DELETE 
+POST {{url}}/simpleUsers/delete/619d83eed2fb430e6e4c376a
+content-type: application/json
