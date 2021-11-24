@@ -16,7 +16,8 @@ app.get('/simpleUsers', async (req, res) => {
 });
 
 app.post('/simpleUsers/create', async (req, res) => {
-	const result = await SimpleUsersController.createSimpleUser(req.body);
+	const simpleUserObj = req.body;
+	const result = await SimpleUsersController.createSimpleUser(simpleUserObj);
 	res.json({
 		result
 	});
@@ -30,6 +31,14 @@ app.post('/simpleUsers/delete/:id', async (req, res) => {
 	});
 });
 
+app.patch('/simpleUsers/update/:id', async (req, res) => {
+	const id = req.params.id;
+	const updateFields = req.body
+	const result = await SimpleUsersController.updateSimpleUser(id, updateFields);
+	res.json({
+		result
+	});
+});
 app.listen(port, () => {
 	console.log(`API is now listening on port ${port}`);
 })
